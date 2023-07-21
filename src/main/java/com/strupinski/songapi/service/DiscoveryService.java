@@ -1,4 +1,4 @@
-package com.innowise.songapi.service;
+package com.strupinski.songapi.service;
 
 import org.springframework.stereotype.Service;
 

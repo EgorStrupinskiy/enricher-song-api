@@ -1,6 +1,6 @@
-package com.innowise.songapi.service.impl;
+package com.strupinski.songapi.service.impl;
 
-import com.innowise.songapi.service.DiscoveryService;
+import com.strupinski.songapi.service.DiscoveryService;
 import jakarta.ws.rs.InternalServerErrorException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
