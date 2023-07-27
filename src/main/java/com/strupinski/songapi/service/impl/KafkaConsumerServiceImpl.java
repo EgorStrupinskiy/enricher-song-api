@@ -7,6 +7,7 @@ import com.strupinski.songapi.dto.TrackDTO;
 import com.strupinski.songapi.dto.converter.TrackMapper;
 import com.strupinski.songapi.repository.SongRepository;
 import com.strupinski.songapi.service.KafkaConsumerService;
+import com.strupinski.songapi.service.TrackService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class KafkaConsumerServiceImpl implements KafkaConsumerService {
 
-    private final SongRepository songRepository;
+    private final TrackService trackService;
     private final ObjectMapper objectMapper;
 
     @Override
@@ -30,9 +31,8 @@ public class KafkaConsumerServiceImpl implements KafkaConsumerService {
                             .get(0),
                     TrackDTO.class);
 
-            log.info("Track parsed successfully");
-            log.info(String.valueOf(trackDTO));
-            songRepository.save(TrackMapper.INSTANCE.trackDTOtoTrack(trackDTO));
+            log.info("TrackDTO parsed successfully.");
+            trackService.save(TrackMapper.INSTANCE.trackDTOtoTrack(trackDTO));
         } catch (Exception e) {
             log.error("Error while file processing");
             log.error(e.getMessage());
