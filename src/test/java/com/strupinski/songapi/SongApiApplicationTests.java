@@ -1,4 +1,4 @@
-package com.innowise.songapi;
+package com.strupinski.songapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
